@@ -1,0 +1,13 @@
+<div class="container mx-auto grid grid-cols-5" >
+    <mat-card *ngFor="let poke of pokemons">
+        <mat-card-title>{{ poke.name }}</mat-card-title>
+        <img mat-card-image [src]="poke.sprites.front_default" alt="Pokemon Image"> 
+        <mat-card-content><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p></mat-card-content>
+        
+        <div class="flex justify-end">            
+            <button mat-raised-button color="primary">
+                Primary
+            </button>
+        </div>
+    </mat-card>
+</div>
