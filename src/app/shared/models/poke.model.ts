@@ -1,5 +1,7 @@
 export interface Favorite {
     name: string,
     alias: string,
-    createdAt: number
+    createdAt: Date,
+    //Remove this one
+    sprites: any
 }

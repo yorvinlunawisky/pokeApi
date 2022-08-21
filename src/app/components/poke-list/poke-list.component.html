@@ -1,13 +1,28 @@
-<div class="container mx-auto grid grid-cols-5" >
-    <mat-card *ngFor="let poke of pokemons">
-        <mat-card-title>{{ poke.name }}</mat-card-title>
-        <img mat-card-image [src]="poke.sprites.front_default" alt="Pokemon Image"> 
-        <mat-card-content><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p></mat-card-content>
-        
-        <div class="flex justify-end">            
-            <button mat-raised-button color="primary">
-                Primary
-            </button>
-        </div>
+<div class="container mx-auto grid lg:grid-cols-5 md:grid-cols-3 sm: grid-cols-1" >
+    <mat-card *ngFor="let poke of pageSlice; index as i">
+        <mat-card-title>{{ poke.name}}</mat-card-title>
+        <img mat-card-image [src]="poke.sprites.front_default" alt="Pokemon Image">  
+        <mat-card-footer>            
+            <div class="flex justify-center">            
+                <button mat-raised-button color="primary" (click)="addToFavorites(poke)">
+                    Agregar a Favoritos
+                </button>
+            </div>
+        </mat-card-footer>
     </mat-card>
+</div>
+
+<!-- No cards available -->
+<ng-container *ngIf="pageSlice.length < 0">
+    <p class="text-red-700 text-lg font-bold justify-center flex">There's not cards</p>
+</ng-container>
+
+<!-- Pagination -->
+<div class="container  mx-auto">    
+    <mat-paginator  
+        [length]="this.pokemons.length"
+        [pageSize]="20"
+        [pageSizeOptions]="[20, 40,60, 80, 100]"
+        (page)="onPageChange($event)">
+    </mat-paginator>
 </div>

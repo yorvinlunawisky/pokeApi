@@ -1,1 +1,26 @@
-<p>favorites-pokes works!</p>
+<!-- title componenent -->
+<div class="flex justify-center mx-auto container">           
+    <h1 class="text-rose-500 font-bold text-3xl pb-10">Mis Pokemones Favoritos</h1>
+</div>
+<!-- Favorite Cards -->
+<div class="container mx-auto grid grid-cols-5" >
+        <mat-card *ngFor="let favPoke of favPokemons; index as i">        
+            <mat-card-title>{{ favPoke.name}}                
+            </mat-card-title>
+            <img mat-card-image [src]="favPoke.sprites.front_default" alt="Pokemon Image"> 
+            <mat-card-subtitle>
+                <div class="flex justify-between"><span class="blue-text font-bold">Alias: </span> <fa-icon class="cursor-pointer" [icon]="faEdit"></fa-icon></div>
+            </mat-card-subtitle>
+            <mat-card-subtitle>
+                <span class="blue-text font-bold">CreatedAt:</span> {{ createdAt | date: 'dd-MM-YYYY' }}
+                </mat-card-subtitle>
+            <mat-card-footer>      
+                <!-- Remove card from favorites ones  -->
+                <div class="delete-button flex justify-end">                                
+                    <button mat-icon-button color="accent" type="button">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </mat-card-footer>
+        </mat-card>
+</div>

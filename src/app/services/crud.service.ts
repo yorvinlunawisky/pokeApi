@@ -6,11 +6,12 @@ import { Favorite } from '../shared/models/poke.model';
   providedIn: 'root'
 })
 export class CrudService {
+  // Card Model
   //Pokemons API
   pokeApi = 'https://pokeapi.co/api/v2/pokemon?limit=100&offset=0';
   //Poke List
   Pokes: any[] = [];
-  Favoritepokes:Favorite[] = [];
+  favoritePokes:Favorite[] = [];
 
   constructor(private http: HttpClient) { }
 

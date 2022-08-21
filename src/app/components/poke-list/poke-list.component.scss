@@ -1,8 +1,18 @@
 mat-card {
     width: 18.5rem;
-    margin: 20px 10px;
+    margin: 10px 10px;
 }
 
 mat-card-title {
-    color: #45C663;
+    text-align: center;
+    color: #3f51b5;
+}
+
+mat-card-content {
+    text-align: justify;
+    color: rgb(41, 41, 41);
+}
+
+mat-card-footer {
+    padding-bottom: 1rem;
 }
