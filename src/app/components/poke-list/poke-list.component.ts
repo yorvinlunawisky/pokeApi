@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import { CrudService } from 'src/app/services/crud.service';
+import { CrudService } from 'src/app/shared/services/crud.service';
 import { Favorite } from 'src/app/shared/models/poke.model';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 
@@ -30,8 +30,9 @@ export class PokeListComponent implements OnInit {
       });    
   }
 
-  addToFavorites(poke: any) {
-    this.cService.favoritePokes.push(poke);
+  addToFavorites(poke: Favorite) {
+    this.cService.pokemonsUpdated.push(poke);
+    sessionStorage.setItem('pokemons', JSON.stringify(this.cService.pokemonsUpdated));
   }
 
   //Paginator function

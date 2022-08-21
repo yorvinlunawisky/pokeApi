@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Favorite } from '../shared/models/poke.model';
+import { Favorite } from '../models/poke.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CrudService {
-  // Card Model
+  
   //Pokemons API
   pokeApi = 'https://pokeapi.co/api/v2/pokemon?limit=100&offset=0';
-  //Poke List
-  Pokes: any[] = [];
+  //Pokemons variables
+  pokemons: Favorite[] = [];
+  pokemonsUpdated = [...this.pokemons]
   favoritePokes:Favorite[] = [];
+  favoritePokesStored = [...this.favoritePokes]
 
   constructor(private http: HttpClient) { }
 
