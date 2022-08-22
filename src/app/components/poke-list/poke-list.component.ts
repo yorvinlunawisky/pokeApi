@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { PageEvent } from '@angular/material/paginator';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { CrudService } from 'src/app/shared/services/crud.service';
 import { Favorite } from 'src/app/shared/models/poke.model';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
@@ -9,14 +9,17 @@ import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './poke-list.component.html',
   styleUrls: ['./poke-list.component.scss']
 })
-export class PokeListComponent implements OnInit {
-  //Pagination function
+export class PokeListComponent implements OnInit, AfterViewInit {
+  // Pagination function
   pokemons: Favorite[] = [];
   pageSlice: Favorite[] = this.pokemons.slice(0, 20);
-  //Other Variables
+  // FontAwesome Icon
   faPencilAlt = faPencilAlt
 
   constructor(private cService: CrudService) { }
+  ngAfterViewInit(): void {
+ 
+  }
 
   ngOnInit(): void {
     this.cService.getPokes()
@@ -25,10 +28,12 @@ export class PokeListComponent implements OnInit {
           this.cService.getPokesNames(result.name)         
           .subscribe((singleData: any) => {
             this.pokemons.push(singleData)
+            this.pageSlice = this.pokemons.slice(0, 20)
           })
+          console.log(this.pageSlice)
         })
-      });    
-  }
+      });   
+ }
 
   addToFavorites(poke: Favorite) {
     this.cService.pokemonsUpdated.push(poke);
