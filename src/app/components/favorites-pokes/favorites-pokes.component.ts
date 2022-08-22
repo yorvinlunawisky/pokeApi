@@ -38,7 +38,8 @@ export class FavoritesPokesComponent {
     this.favPokemons = this.cService.getFavoritePokemons()
     
   }
-    removePoke(favPoke: Favorite) {
-    this.cService.deletePoke(favPoke)
-}
+  removePoke(favPoke: Favorite) {
+  this.cService.deletePoke(favPoke); 
+  this.favPokemons = this.cService.getFavoritePokemons()
+  }
 }
