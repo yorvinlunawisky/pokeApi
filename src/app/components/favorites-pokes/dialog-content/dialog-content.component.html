@@ -1,6 +1,6 @@
 <h2 mat-dialog-title>{{ data?.title }}</h2>
 <div mat-dialog-content>
-    <form [formGroup]="formControl" class="example-form" (ngSubmit)="addAlias(formControl)"> 
+    <form [formGroup]="formControl" class="example-form"> 
         <mat-form-field appearance="fill">
           <mat-label>Alias</mat-label>
           <input type="text" matInput formControlName="alias" placeholder="Agregar alias...">
@@ -9,6 +9,6 @@
       </form>      
 </div>
 <div mat-dialog-actions>
-    <button type="button" mat-raised-button color="primary" mat-dialog-close [disabled]="formControl.invalid" (click)="addAlias(formControl)">Agregar</button>
+    <button type="button" mat-raised-button color="primary" [mat-dialog-close]="formControl.value.alias" [disabled]="formControl.invalid">Agregar</button>
     <button type="button" mat-raised-button color="warn" mat-dialog-close>Cancelar</button>
 </div>

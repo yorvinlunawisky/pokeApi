@@ -13,6 +13,7 @@ export class PokeListComponent implements OnInit {
   // Pagination function
   pokemons: Favorite[] = [];
   pageSlice: Favorite[] = this.pokemons.slice(0, 20);
+  favPokemons: Favorite[] = [];
   // FontAwesome Icon
   faPencilAlt = faPencilAlt
 
@@ -28,12 +29,17 @@ export class PokeListComponent implements OnInit {
             this.pageSlice = this.pokemons.slice(0, 20)
           });
         })
-      });   
+      });  
+
+      this.cService.refreshFavorites()
  }
 
   addToFavorites(poke: Favorite) {
-    this.cService.pokemonsUpdated.push(poke);
-    sessionStorage.setItem('pokemons', JSON.stringify(this.cService.pokemonsUpdated));
+    this.cService.addToFavorite(poke)    
+  }
+
+  isFavorite(poke: Favorite) {
+    return this.cService.favoritePokes.find(item => item.name === poke.name)
   }
 
   //Paginator function

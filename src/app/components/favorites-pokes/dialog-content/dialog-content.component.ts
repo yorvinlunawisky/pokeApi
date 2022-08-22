@@ -10,16 +10,11 @@ import { Favorite } from 'src/app/shared/models/poke.model';
 })
 export class DialogContentComponent {
   @Input() pokeAlias:string = '';
-  // @Output() aliasEvent: EventEmitter<any> = new EventEmitter();
+  @Output() aliasEvent: EventEmitter<any> = new EventEmitter();
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
 
     formControl = new FormGroup({
       alias: new FormControl('', Validators.required)
   });
-
-  //Capturing user's form input
-  addAlias(form: any) {
-    this.pokeAlias = (form.value.alias);
-  }
 } 

@@ -4,7 +4,7 @@
         <img mat-card-image [src]="poke.sprites.front_default" alt="Pokemon Image">  
         <mat-card-footer>            
             <div class="flex justify-center">            
-                <button mat-raised-button color="primary" type="button" (click)="addToFavorites(poke)">
+                <button mat-raised-button color="primary" type="button" (click)="addToFavorites(poke)" [disabled]="isFavorite(poke)">
                     Agregar a Favoritos
                 </button>
             </div>

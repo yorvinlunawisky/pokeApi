@@ -1,15 +1,16 @@
+
 <!-- title componenent -->
 <div class="flex justify-center mx-auto container">           
     <h1 class="blue-text font-bold text-3xl pb-10">Mis Pokemones Favoritos</h1>
 </div>
 <!-- Favorite Cards -->
 <div class="container mx-auto grid grid-cols-5" >
-        <mat-card *ngFor="let favPoke of favPokemons; index as i">        
+        <mat-card *ngFor="let favPoke of favPokemons; index as i" >        
             <mat-card-title>{{ favPoke.name}}                
             </mat-card-title>
             <img mat-card-image [src]="favPoke.sprites.front_default" alt="Pokemon Image"> 
             <mat-card-subtitle>
-                <div class="flex justify-between"><span class="blue-text font-bold">Alias: {{ favPoke.alias }}   </span> <fa-icon (click)="openDialog()" class="cursor-pointer" [icon]="faEdit"></fa-icon></div>
+                <div class="flex justify-between"><span class="blue-text font-bold">Alias: <span class="font-normal text-gray-600">{{ favPoke.alias }}</span></span> <fa-icon (click)="openDialog(favPoke)" class="cursor-pointer" [icon]="faEdit"></fa-icon></div>
             </mat-card-subtitle>
             <mat-card-subtitle>
                 <span class="blue-text font-bold">Agregado el:</span> {{ createdAt | date: 'dd-MM-YYYY' }}
