@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PokeListComponent } from './components/poke-list/poke-list.component';
 import { FavoritesPokesComponent } from './components/favorites-pokes/favorites-pokes.component';
-import { DialogContentComponent } from './components/dialog-content/dialog-content.component';
+import { DialogContentComponent } from './components/favorites-pokes/dialog-content/dialog-content.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';

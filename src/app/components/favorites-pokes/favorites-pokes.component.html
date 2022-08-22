@@ -9,7 +9,7 @@
             </mat-card-title>
             <img mat-card-image [src]="favPoke.sprites.front_default" alt="Pokemon Image"> 
             <mat-card-subtitle>
-                <div class="flex justify-between"><span class="blue-text font-bold">Alias: </span> <fa-icon (click)="openDialog()" (aliasEvent)="getAlias($event)" class="cursor-pointer" [icon]="faEdit"></fa-icon></div>
+                <div class="flex justify-between"><span class="blue-text font-bold">Alias: {{ favPoke.alias }}   </span> <fa-icon (click)="openDialog()" class="cursor-pointer" [icon]="faEdit"></fa-icon></div>
             </mat-card-subtitle>
             <mat-card-subtitle>
                 <span class="blue-text font-bold">Agregado el:</span> {{ createdAt | date: 'dd-MM-YYYY' }}

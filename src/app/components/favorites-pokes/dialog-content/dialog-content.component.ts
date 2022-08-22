@@ -9,8 +9,8 @@ import { Favorite } from 'src/app/shared/models/poke.model';
   styleUrls: ['./dialog-content.component.scss']
 })
 export class DialogContentComponent {
-  @Input() pokeAlias = '';
-  @Output() aliasEvent = new EventEmitter<string>();
+  @Input() pokeAlias:string = '';
+  // @Output() aliasEvent: EventEmitter<any> = new EventEmitter();
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) { }
 
